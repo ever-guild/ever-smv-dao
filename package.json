@@ -1,0 +1,43 @@
+{
+  "name": "ever-smv-dao",
+  "version": "1.0.0-alpha.0",
+  "description": "DAO with soft majority voting (SMV) on Everscale",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EverscaleGuild/ever-smv-dao.git"
+  },
+  "keywords": [
+    "tvm",
+    "solidity",
+    "locklift",
+    "dao",
+    "smv",
+    "everscale"
+  ],
+  "author": "EverscaleGuild",
+  "license": "MIT",
+  "scripts": {
+    "nvm": "echo $npm_package_engines_node | cut -d'=' -f2",
+    "local-network": "everdev se reset",
+    "contract-build": "locklift build",
+    "contract-deploy-local": "npx locklift run --network local --script scripts/1-deploy-document.ts",
+    "contract-deploy-dev": "npx locklift run --network dev --script scripts/1-deploy-document.ts",
+    "contract-test": "npx locklift test --network local",
+    "test": "yarn local-network && sleep 5s && yarn contract-test"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.3",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.7.14",
+    "chai": "^4.3.6",
+    "everdev": "^1.3.0",
+    "everscale-standalone-client": "^2.1.0",
+    "locklift": "^2.2.1",
+    "prettier": "^2.7.1",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^4.7.4"
+  }
+}
